@@ -2,6 +2,14 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torchsummary import summary
+import torch
+
+import torch.optim as optim
+import torch.utils.data as data
+import torchvision.datasets as datasets
+import torchvision.models as models
+import torchvision.transforms as transforms
+
 
 '''
 具体的なサンプルデータを生成
@@ -85,6 +93,7 @@ y = model(sample)
 print(y)
 
 
+#summary(model,10)
 '''
 自作モジュールを複数使用して新たな自作モジュールを作成
 
@@ -129,4 +138,10 @@ model = Model(input=10)
 y = model(sample)
 print(y)
 
-model.summary()
+# torchsummaryを使った可視化
+#summary(model,32)
+
+
+model_ft = models.resnet18(pretrained = True)
+print(model_ft)
+summary(model_ft)
